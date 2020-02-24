@@ -1,0 +1,36 @@
+{
+    "name": "honray/wk-extension",
+    "type": "library",
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "authors": [
+        {
+            "name": "Luo Hongrui",
+            "email": "luohongrui@hongraytech.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "honray\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "tests\\honray\\": "tests/"
+        }
+    },
+    "require": {
+        "nikic/php-parser": "^4.3",
+        "symfony/console": "^5.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
+    ],
+    "bin": [
+        "bin/wke"
+    ]
+}

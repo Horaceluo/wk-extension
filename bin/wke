@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+// application.php
+
+require __DIR__.'/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use honray\command\GenFunctionData;
+use Symfony\Component\Console\Input\InputDefinition;
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputOption;
+
+$application = new Application();
+$application->add(new GenFunctionData());
+$application->setName('惟快开发者中心拓展');
+$application->setDefinition(
+    new InputDefinition([
+        new InputArgument('command', InputArgument::REQUIRED, '需要执行的命令'),
+    
+        new InputOption('--help', '-h', InputOption::VALUE_NONE, '显示帮助信息'),
+        new InputOption('--quiet', '-q', InputOption::VALUE_NONE, '不打印任何信息'),
+        new InputOption('--verbose', '-v|vv|vvv', InputOption::VALUE_NONE, '显示更多信息用于debug'),
+        new InputOption('--version', '-V', InputOption::VALUE_NONE, '显示应用版本'),
+        new InputOption('--ansi', '', InputOption::VALUE_NONE, '强制 ANSI 输出'),
+        new InputOption('--no-ansi', '', InputOption::VALUE_NONE, '禁止 ANSI 输出'),
+        new InputOption('--no-interaction', '-n', InputOption::VALUE_NONE, '禁止交互'),
+    ])
+);
+
+$application->run();
+
+
