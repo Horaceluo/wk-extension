@@ -176,7 +176,7 @@ class WKFunctions
 
         $line = $this->parseDoc($commentText);
         $items = $this->parseLineBySpace($line[0]);
-        return $items[1];
+        return $items[1] ?? '';
     }
 
     /**
