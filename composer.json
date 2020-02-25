@@ -22,7 +22,8 @@
     },
     "require": {
         "nikic/php-parser": "^4.3",
-        "symfony/console": "^5.0"
+        "symfony/console": "^5.0",
+        "topthink/framework": "6.0.*"
     },
     "repositories": [
         {
