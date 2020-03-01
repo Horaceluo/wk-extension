@@ -2,3 +2,4 @@ vendor
 .wk
 .wktest
 .phpunit.result.*
+composer.lock

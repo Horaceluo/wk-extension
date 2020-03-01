@@ -39,15 +39,19 @@ class GenFunctionData extends Command
 
         $path = realpath($path);
 
-        $functionBuilder = new FunctionBuilder();
-        $functionScanner = new FunctionScanner($functionBuilder);
-        $result = $functionScanner->scanFolder($path);
+        try {
+            $functionBuilder = new FunctionBuilder();
+            $functionScanner = new FunctionScanner($functionBuilder);
+            $result = $functionScanner->scanFolder($path);
 
-        $functionSaver = new FunctionSaver();
-        $filePath = $functionSaver->save($result);
-        
-        $io->writeln('函数保存在: '.$filePath);
+            $functionSaver = new FunctionSaver();
+            $filePath = $functionSaver->save($result);
+            
+            $io->writeln('函数保存在: '.$filePath);
 
-        return 0;
+            return 0;
+        } catch (\Exception $e) {
+            $io->writeln($e->getTraceAsString());
+        }
     }
 }

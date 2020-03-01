@@ -67,7 +67,7 @@ class FunctionScanner
      */
     private function isValidFile($filePath)
     {
-        if (($filePath === '.') || ($filePath === '..')) {
+        if (in_array($filePath, ['.', '..', 'vendor'])) {
             return false;
         }
 

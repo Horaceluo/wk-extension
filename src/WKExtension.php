@@ -6,11 +6,11 @@ use think\App;
 
 abstract class WKExtension
 {
-    private $ctx;
+    protected $ctx;
 
     public function __construct(App $app)
     {
-        $this->ctx = $this->app;
+        $this->ctx = $app;
     }
 
     abstract function init();
