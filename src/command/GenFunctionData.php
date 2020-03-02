@@ -13,7 +13,7 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class GenFunctionData extends Command
 {
-    protected static $defaultName = 'gen-func';
+    protected static $defaultName = 'gen:func';
 
     protected function configure()
     {
