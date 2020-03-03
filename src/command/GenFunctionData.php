@@ -19,7 +19,8 @@ class GenFunctionData extends Command
     {
         $this->setDescription('生成指定文件的函数配置数据')
             ->setHelp('此命令可生成指定文件下的惟快函数配置文件，默认问当前目录')
-            ->addArgument('path', InputArgument::OPTIONAL, '文件夹路径');
+            ->addArgument('path', InputArgument::OPTIONAL, '文件夹路径')
+            ->addArgument('name', InputArgument::OPTIONAL, '存储文件名');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -45,7 +46,7 @@ class GenFunctionData extends Command
             $result = $functionScanner->scanFolder($path);
 
             $functionSaver = new FunctionSaver();
-            $filePath = $functionSaver->save($result);
+            $filePath = $functionSaver->save($result, $input->getArgument('name'));
             
             $io->writeln('函数保存在: '.$filePath);
 
