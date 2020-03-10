@@ -38,6 +38,10 @@ class FunctionScanner
                     continue ;
                 }
 
+                if (substr($fullPath, -4, 4) !== '.php') {
+                    continue ;
+                }
+
                 $this->scanFile($fullPath);
             }
 
@@ -67,7 +71,7 @@ class FunctionScanner
      */
     private function isValidFile($filePath)
     {
-        if (in_array($filePath, ['.', '..', 'vendor'])) {
+        if (in_array($filePath, ['.', '..', 'vendor', '.git', '.vscode'])) {
             return false;
         }
 

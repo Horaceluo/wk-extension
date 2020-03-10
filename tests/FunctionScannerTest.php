@@ -9,7 +9,9 @@ class FunctionScannerTest extends TestCase
 {
     public function testScanFolder()
     {
-        $builder = $this->createMock(FunctionBuilder::class);
+        $builder = $this->getMockBuilder(FunctionBuilder::class)
+            ->disableOriginalConstructor()
+            ->getMock();
 
         $builder->method('build')
             ->willReturn(
